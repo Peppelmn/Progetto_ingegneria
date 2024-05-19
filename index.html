@@ -95,17 +95,75 @@
                     <select class="form-select" id="vulnerabilità" aria-label="Disabled select example">
                         <option selected>Seleziona</option>
                     </select>
-                    <br><button class="btn" style="background:#0F52BA;color: white;" type="submit">Visualizza</button>
+                    <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-toggle="modal" data-bs-target="#pattern" id="visualizza">
+                        Visualizza</button>
             </div>
             </form>
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Pattern</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Inserisci...">
+        </div>
+    </div>
+
+    <div class="modal fade" id="pattern" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pattern associati</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="pattern-body"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 
-    
+    <script>
+        // SCRIPT 1A FUNZIONALITA'
+        document.addEventListener("DOMContentLoaded", function () {
+            let select = document.getElementById("vulnerabilità");
+            let visualizza = document.getElementById("visualizza");
+            let pattern_body = document.getElementById("pattern-body");
+            let funzione1, funzione2;
+            let url = "http://localhost:1337/api/cwe-weaknesses";
+            fetch(url)
+                .then(response => response.json())
+                .then(funzione1 => {
+                    let datas = funzione1.data;
+                    let vulnerabilità;
+                    let Numero;
+                    let Testo;
+                    for (let data of funzione1.data) {
+                        Numero = data.attributes.Numero;
+                        Testo = data.attributes.Testo;
+                        vulnerabilità += `<option value="${Numero}">${Numero}-${Testo}</option>`;
+                    }
+                    select.innerHTML = vulnerabilità;
+
+                });
+            visualizza.addEventListener("click", () => {
+                let urlPattern = `http://localhost:1337/api/patterns?fields[5]=Nome&filters[cwe_weaknesses][Numero][$eq]=${select.value}`;
+                let patterns = "";
+                fetch(urlPattern)
+                    .then(response => response.json())
+                    .then(funzione2 => {
+                        for (let data of funzione2.data) {
+                            let Nome = data.attributes.Nome;
+                            Nome = Nome.replace(/_/g, ' ');
+                            patterns += `${Nome}\n\n`;
+                        }
+                        pattern_body.innerText = patterns;
+
+                    });
+
+            });
+        });
+    </script>
+
+
 
     <div class="card" style="margin: 20px">
         <h5 class="card-header">2° Funzionalità</h5>
@@ -239,31 +297,11 @@
     </div>
 
 
-    <script>
-        // SCRIPT 1A FUNZIONALITA'
-        let select=document.getElementById("vulnerabilità")
-        let funzione1;
-        let url="http://localhost:1337/api/cwe-weaknesses";
-        fetch(url)
-        .then(response => response.json())
-        .then(funzione1=>{
-            let datas=funzione1.data;
-            let vulnerabilità;
-            let Numero;
-            let Testo;
-            for(let data of funzione1.data){
-                Numero=data.attributes.Numero;
-                Testo=data.attributes.Testo;
-                vulnerabilità +=`<option value="${Numero}">${Numero}-${Testo}</option>`;
-            }
-            select.innerHTML=vulnerabilità;
-        });
-    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous">
-    </script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
 
 </body>
 
