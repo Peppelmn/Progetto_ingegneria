@@ -105,18 +105,7 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function (){
-            let funzione1;
-            let url="http://localhost:1337/api/patterns?fields[5]=Nome&populate[cwe_weaknesses][fields][0]=Numero&populate[cwe_weaknesses][fields][1]=Testo";
-            fetch(url).
-            then(response => response.json)
-            .then(json=>{
-                funzione1=json;
-                console.log(funzione1);
-            });
-        });
-    </script>
+    
 
     <div class="card" style="margin: 20px">
         <h5 class="card-header">2° Funzionalità</h5>
@@ -250,9 +239,25 @@
     </div>
 
 
-    <script>    
-    //Script per lista vulnerabilità
-
+    <script>
+        // SCRIPT 1A FUNZIONALITA'
+        let select=document.getElementById("vulnerabilità")
+        let funzione1;
+        let url="http://localhost:1337/api/cwe-weaknesses";
+        fetch(url)
+        .then(response => response.json())
+        .then(funzione1=>{
+            let datas=funzione1.data;
+            let vulnerabilità;
+            let Numero;
+            let Testo;
+            for(let data of funzione1.data){
+                Numero=data.attributes.Numero;
+                Testo=data.attributes.Testo;
+                vulnerabilità +=`<option value="${Numero}">${Numero}-${Testo}</option>`;
+            }
+            select.innerHTML=vulnerabilità;
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
