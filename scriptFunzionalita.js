@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 });
+
+
 //SCRIPT 2A FUNZIONALITA'
 document.addEventListener("DOMContentLoaded", function () {
     let select = document.getElementById("select2");
