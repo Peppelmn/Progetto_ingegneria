@@ -81,7 +81,7 @@
     </dd>
     </p>
 
-    <!-- 1° FUNZIONALITA': PRIVACY PATTERN DA VULNERABILITA' -->
+    <!-- CARD 1° FUNZIONALITA': PRIVACY PATTERN DA VULNERABILITA' -->
     <div class="card" style="margin: 20px">
         <h5 class="card-header">1° Funzionalità</h5>
         <div class="card-body">
@@ -93,7 +93,6 @@
                 <form>
                     <label for="formGroupExampleInput" class="form-label">Vulnerabilità</label>
                     <select class="form-select" id="select1" aria-label="Disabled select example">
-                        <option selected>Seleziona</option>
                     </select>
                     <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
                         data-bs-toggle="modal" data-bs-target="#modal1" id="visualizza1">
@@ -110,20 +109,17 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Pattern associati</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <b id="modal-body1"></b>
+                <div class="modal-body" id="modal-body1">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" style="background:#0F52BA;color: white;"
-                        data-bs-dismiss="modal">Close</button>
+                        data-bs-dismiss="modal">Chiudi</button>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-    <!-- 2° FUNZIONALITA' -->
+    <!-- CARD 2° FUNZIONALITA' -->
     <div class="card" style="margin: 20px">
         <h5 class="card-header">2° Funzionalità</h5>
         <div class="card-body">
@@ -155,39 +151,51 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" style="background:#0F52BA;color: white;"
-                        data-bs-dismiss="modal">Close</button>
+                        data-bs-dismiss="modal">Chiudi</button>
                 </div>
             </div>
         </div>
     </div>
 
-
+    <!-- CARD 3A FUNZIONALITA' -->
     <div class="card" style="margin: 20px">
         <h5 class="card-header">3° Funzionalità</h5>
         <div class="card-body">
             <h5 class="card-title"></h5>
-            <p class="card-text"> Questa sezione può essere utilizzata per visualizzare un Design Pattern di un
+            <p class="card-text"> Questa sezione può essere utilizzata per visualizzare un Pattern di un
                 determinato Articolo GDPR.
             </p>
             <div class="mb-3">
                 <form>
                     <label for="formGroupExampleInput" class="form-label">Articolo GDPR</label>
-                    <select class="form-select" aria-label="Disabled select example">
-                        <option disabled>Seleziona</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="select3">
                     </select>
-                    <br><button class="btn" type="submit" style="background:#0F52BA;color: white;">Visualizza</button>
+                    <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-toggle="modal" data-bs-target="#modal3" id="visualizza3">
+                        Visualizza</button>
             </div>
             </form>
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Design Pattern</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Inserisci...">
+        </div>
+    </div>
+    <!-- MODAL 3A FUNZIONALITA' -->
+    <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pattern associati</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body3">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-dismiss="modal">Chiudi</button>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- CARD 4A FUNZIONALITA' -->
     <div class="card" style="margin: 20px">
         <h5 class="card-header">4° Funzionalità</h5>
         <div class="card-body">
@@ -198,13 +206,83 @@
             <div class="mb-3">
                 <form>
                     <label for="formGroupExampleInput" class="form-label">Pattern</label>
-                    <select class="form-select" aria-label="Disabled select example">
-                        <option disabled>Seleziona</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" aria-label="Disabled select example" id="select4">
                     </select>
-                    <br><button class="btn" style="background:#0F52BA;color: white;" type="submit">Visualizza</button>
+                    <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-toggle="modal" data-bs-target="#modal4" id="visualizza4">
+                        Visualizza</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- MODAL 4A FUNZIONALITA' -->
+    <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Elementi della PKB associati</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body4">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 5A FUNZIONALITA' -->
+    <div class="card" style="margin: 20px">
+        <h5 class="card-header">5° Funzionalità</h5>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"> Visualizzare i principi pbd da iso phase
+            </p>
+            <div class="mb-3">
+                <form>
+                    <label for="formGroupExampleInput" class="form-label">Pattern</label>
+                    <select class="form-select" aria-label="Disabled select example" id="select5">
+                    </select>
+                    <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-toggle="modal" data-bs-target="#modal5" id="visualizza5">
+                        Visualizza</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- MODAL 5A FUNZIONALITA' -->
+    <div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Principi Privacy By Design associati</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body5">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="margin: 20px">
+        <h5 class="card-header">6° Funzionalità</h5>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"> Conoscere le fasi iso da componente mvc
+            </p>
+            <div class="mb-3">
+                <form>
+                    <label for="formGroupExampleInput" class="form-label">Pattern</label>
+                    <select class="form-select" aria-label="Disabled select example" id="select4">
+                    </select>
+                    <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-toggle="modal" data-bs-target="#modal4" id="visualizza4">
+                        Visualizza</button>
             </div>
             </form>
             <div class="mb-3">
@@ -215,52 +293,27 @@
     </div>
 
     <div class="card" style="margin: 20px">
-        <h5 class="card-header">5° Funzionalità</h5>
+        <h5 class="card-header">7° Funzionalità</h5>
         <div class="card-body">
             <h5 class="card-title"></h5>
-            <p class="card-text"> Questa sezione può essere utilizzata per visualizzare gli elementi della Privacy
-                Knoledge Base associati ad un Pattern
+            <p class="card-text"> Conoscere le cwe da articolo
             </p>
             <div class="mb-3">
                 <form>
                     <label for="formGroupExampleInput" class="form-label">Pattern</label>
-                    <select class="form-select" aria-label="Disabled select example">
-                        <option disabled>Seleziona</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" aria-label="Disabled select example" id="select4">
                     </select>
-                    <br><button class="btn" style="background:#0F52BA;color: white;" type="submit">Visualizza</button>
+                    <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-toggle="modal" data-bs-target="#modal4" id="visualizza4">
+                        Visualizza</button>
             </div>
             </form>
             <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Design Pattern</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Inserisci...">
+                <label for="formGroupExampleInput2" class="form-label">Elementi della Privacy Knowledge Base:</label>
+
             </div>
         </div>
     </div>
-
-    <div class="card" style="margin: 20px">
-        <h5 class="card-header">6° Funzionalità</h5>
-        <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text"> Questa sezione può essere utilizzata per visualizzare gli elementi specifici
-                all'interno della Privacy Knowledge Base usando una parola chiave o categorie
-            </p>
-            <div class="mb-3">
-                <form>
-                    <label for="formGroupExampleInput" class="form-label">Parola chiave</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Inserisci...">
-                    <br><button class="btn" style="background:#0F52BA;color: white;" type="submit">Visualizza</button>
-            </div>
-            </form>
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Elementi Privacy Knowledge Base</label>
-            </div>
-        </div>
-    </div>
-
-
 
     <div id="notifiche" style="background: #5E86C1; color:white">
         <h1 align="center">NOTIFICHE</h1>
