@@ -87,11 +87,11 @@
         <div class="card-body">
             <h5 class="card-title"></h5>
             <p class="card-text"> Questa sezione può essere utilizzata per visualizzare i Privacy Pattern assoaciati ad
-                una determinata vulnerabilità.
+                una determinata vulnerabilità CWE.
             </p>
             <div class="mb-3">
                 <form>
-                    <label for="formGroupExampleInput" class="form-label">Vulnerabilità</label>
+                    <label for="formGroupExampleInput" class="form-label">Vulnerabilità CWE</label>
                     <select class="form-select" id="select1" aria-label="Disabled select example">
                     </select>
                     <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
@@ -242,7 +242,7 @@
             </p>
             <div class="mb-3">
                 <form>
-                    <label for="formGroupExampleInput" class="form-label">Pattern</label>
+                    <label for="formGroupExampleInput" class="form-label">Fase ISO 9241-210</label>
                     <select class="form-select" aria-label="Disabled select example" id="select5">
                     </select>
                     <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
@@ -269,6 +269,8 @@
             </div>
         </div>
     </div>
+
+    <!-- CARD 6A FUNZIONALITA' -->
     <div class="card" style="margin: 20px">
         <h5 class="card-header">6° Funzionalità</h5>
         <div class="card-body">
@@ -277,40 +279,67 @@
             </p>
             <div class="mb-3">
                 <form>
-                    <label for="formGroupExampleInput" class="form-label">Pattern</label>
-                    <select class="form-select" aria-label="Disabled select example" id="select4">
+                    <label for="formGroupExampleInput" class="form-label">Componente MVC</label>
+                    <select class="form-select" aria-label="Disabled select example" id="select6">
                     </select>
                     <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
-                        data-bs-toggle="modal" data-bs-target="#modal4" id="visualizza4">
+                        data-bs-toggle="modal" data-bs-target="#modal6" id="visualizza6">
                         Visualizza</button>
             </div>
             </form>
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Elementi della Privacy Knowledge Base:</label>
-
+        </div>
+    </div>
+    <!-- MODAL 6A FUNZIONALITA' -->
+    <div class="modal fade" id="modal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Fasi ISO 9241-210 associate</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body6">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-dismiss="modal">Chiudi</button>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- CARD 6A FUNZIONALITA' -->
     <div class="card" style="margin: 20px">
-        <h5 class="card-header">7° Funzionalità</h5>
+        <h5 class="card-header">6° Funzionalità</h5>
         <div class="card-body">
             <h5 class="card-title"></h5>
-            <p class="card-text"> Conoscere le cwe da articolo
+            <p class="card-text"> Conoscere le cwe da gdpr
             </p>
             <div class="mb-3">
                 <form>
-                    <label for="formGroupExampleInput" class="form-label">Pattern</label>
-                    <select class="form-select" aria-label="Disabled select example" id="select4">
+                    <label for="formGroupExampleInput" class="form-label">Articolo GDPR</label>
+                    <select class="form-select" aria-label="Disabled select example" id="select7">
                     </select>
                     <br><button type="button" class="btn" style="background:#0F52BA;color: white;"
-                        data-bs-toggle="modal" data-bs-target="#modal4" id="visualizza4">
+                        data-bs-toggle="modal" data-bs-target="#modal7" id="visualizza7">
                         Visualizza</button>
             </div>
             </form>
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Elementi della Privacy Knowledge Base:</label>
-
+        </div>
+    </div>
+    <!-- MODAL 6A FUNZIONALITA' -->
+    <div class="modal fade" id="modal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Vulnerabilità CWE associate</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body7">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background:#0F52BA;color: white;"
+                        data-bs-dismiss="modal">Chiudi</button>
+                </div>
             </div>
         </div>
     </div>
@@ -326,7 +355,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
 
-    <script type="text/javascript" src="scriptFunzionalita.js"></script>
+    <script type="text/javascript" src="Utente.js"></script>
 
 </body>
 

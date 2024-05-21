@@ -226,7 +226,6 @@ class Utente {
             fetch(urlPattern)
                 .then(response => response.json())
                 .then(funzione2 => {
-                    console.log(funzione2);
                     for (let data of funzione2.data) {
                         let arrayPatterns = data.attributes.patterns.data;
                         for (let pattern of arrayPatterns) {
@@ -247,12 +246,101 @@ class Utente {
 
         });
     }
+
+    getISOFromMVC() {
+        let select = document.getElementById("select6");
+        let visualizza = document.getElementById("visualizza6");
+        let modal_body = document.getElementById("modal-body6");
+        let selectElement;
+        let url = "http://localhost:1337/api/mvcs";
+        fetch(url)
+            .then(response => response.json())
+            .then(funzione1 => {
+                for (let data of funzione1.data) {
+                    selectElement += `<option value="${data.attributes.Nome}">${data.attributes.Nome}</option>`;
+                }
+                select.innerHTML = selectElement;
+
+            });
+        visualizza.addEventListener("click", () => {
+            let urlPattern = `http://localhost:1337/api/mvcs?fields[0]=Nome&populate[patterns][fields][5]=Nome&populate[patterns][populate][0]=iso_phases&filters[Nome][$eq]=${select.value}`;
+            let text = "";
+            let vettore = [];
+            fetch(urlPattern)
+                .then(response => response.json())
+                .then(funzione2 => {
+                    for (let data of funzione2.data) {
+                        let arrayPatterns = data.attributes.patterns.data;
+                        for (let pattern of arrayPatterns) {
+                            let arrayISO = pattern.attributes.iso_phases.data;
+                            for (let iso of arrayISO) {
+                                let Testo = `${iso.attributes.Numero} - ${iso.attributes.Titolo}`;
+                                vettore.push(Testo);
+                            }
+                        }
+                    }
+                    let vettoreSenzaDuplicati = new Set(vettore);
+                    vettore = [...vettoreSenzaDuplicati];
+                    for (let v of vettore) {
+                        text += `${v}<br>`;
+                    }
+                    modal_body.innerHTML = text;
+                });
+
+        });
+    }
+
+    getCWEFromGDPR() {
+        let select = document.getElementById("select7");
+        let visualizza = document.getElementById("visualizza7");
+        let modal_body = document.getElementById("modal-body7");
+        let selectElement;
+        let url = "http://localhost:1337/api/gdpr-articles?fields[0]=Numero&fields[1]=Nome&sort[1]=Nome";
+        fetch(url)
+            .then(response => response.json())
+            .then(funzione1 => {
+                for (let data of funzione1.data) {
+                    selectElement += `<option value="${data.attributes.Numero}">Articolo ${data.attributes.Numero}: ${data.attributes.Nome}</option>`;
+                }
+                select.innerHTML = selectElement;
+
+            });
+        visualizza.addEventListener("click", () => {
+            let urlPattern = `http://localhost:1337/api/gdpr-articles?fields[0]=Numero&fields[1]=Nome&populate[patterns][fields][5]=Nome&populate[patterns][populate][0]=cwe_weaknesses&filters[Numero][$eq]=${select.value}`;
+            let text = "";
+            let vettore = [];
+            fetch(urlPattern)
+                .then(response => response.json())
+                .then(funzione2 => {
+                    console.log(funzione2);
+                    for (let data of funzione2.data) {
+                        let arrayPatterns = data.attributes.patterns.data;
+                        for (let pattern of arrayPatterns) {
+                            let arrayCWE = pattern.attributes.cwe_weaknesses.data;
+                            for (let cwe of arrayCWE) {
+                                let Testo = `${cwe.attributes.Numero} - ${cwe.attributes.Testo}`;
+                                vettore.push(Testo);
+                            }
+                        }
+                    }
+                    let vettoreSenzaDuplicati = new Set(vettore);
+                    vettore = [...vettoreSenzaDuplicati];
+                    for (let v of vettore) {
+                        text += `${v}<br>`;
+                    }
+                    modal_body.innerHTML = text;
+                });
+
+        });
+    }
 }
 
 let utente = new Utente();
 
-utente.getPrivacyPatternFromWeakness()
-utente.getExampleFromPattern()
-utente.getPatternFromGDPR()
-utente.getElementsFromPattern()
-utente.getPBDFromISO()
+utente.getPrivacyPatternFromWeakness();
+utente.getExampleFromPattern();
+utente.getPatternFromGDPR();
+utente.getElementsFromPattern();
+utente.getPBDFromISO();
+utente.getISOFromMVC();
+utente.getCWEFromGDPR();
