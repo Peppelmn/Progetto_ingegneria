@@ -33,10 +33,7 @@ class GestioineFunzionalità {
                         Nome = Nome.replace(/_/g, ' ');
                         patterns += `-${Nome}\n\n`;
                     }
-                    return {
-                        body: modal_body,
-                        text: patterns
-                    };
+                    modal_body = patterns
 
                 });
 
