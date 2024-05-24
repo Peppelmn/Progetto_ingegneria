@@ -1,4 +1,5 @@
-class Utente {
+
+class GestioineFunzionalità {
     constructor() { }
 
     getPrivacyPatternFromWeakness() {
@@ -32,7 +33,10 @@ class Utente {
                         Nome = Nome.replace(/_/g, ' ');
                         patterns += `-${Nome}\n\n`;
                     }
-                    modal_body.innerText = patterns;
+                    return {
+                        body: modal_body,
+                        text: patterns
+                    };
 
                 });
 
@@ -335,12 +339,12 @@ class Utente {
     }
 }
 
-let utente = new Utente();
+let funzionalità = new GestioineFunzionalità();
 
-utente.getPrivacyPatternFromWeakness();
-utente.getExampleFromPattern();
-utente.getPatternFromGDPR();
-utente.getElementsFromPattern();
-utente.getPBDFromISO();
-utente.getISOFromMVC();
-utente.getCWEFromGDPR();
+funzionalità.getPrivacyPatternFromWeakness();
+funzionalità.getExampleFromPattern();
+funzionalità.getPatternFromGDPR();
+funzionalità.getElementsFromPattern();
+funzionalità.getPBDFromISO();
+funzionalità.getISOFromMVC();
+funzionalità.getCWEFromGDPR();
