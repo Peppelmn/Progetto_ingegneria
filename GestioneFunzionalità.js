@@ -7,10 +7,10 @@ class GestioineFunzionalità {
         let visualizza = document.getElementById("visualizza1");
         let modal_body = document.getElementById("modal-body1");
         let url = "http://localhost:1337/api/cwe-weaknesses?fields[0]=Testo&fields[4]=Numero&sort[0]=Testo:asc";
+        let text = "";
         fetch(url)
             .then(response => response.json())
             .then(funzione1 => {
-                let datas = funzione1.data;
                 let vulnerabilità;
                 let Numero;
                 let Testo;
@@ -23,17 +23,17 @@ class GestioineFunzionalità {
 
             });
         visualizza.addEventListener("click", () => {
-            let urlPattern = `http://localhost:1337/api/patterns?fields[5]=Nome&filters[cwe_weaknesses][Numero][$eq]=${select.value}&sort[5]=Nome:asc`;
-            let patterns = "";
+            let urlPattern = `http://localhost:1337/api/patterns?fields[5]=Nome&filters[cwe_weaknesses][Numero][$eq]=${select.value}`;
             fetch(urlPattern)
                 .then(response => response.json())
                 .then(funzione2 => {
                     for (let data of funzione2.data) {
                         let Nome = data.attributes.Nome;
                         Nome = Nome.replace(/_/g, ' ');
-                        patterns += `-${Nome}\n\n`;
+                        text += `-${Nome}<br><br>`;
                     }
-                    modal_body = patterns
+                    console.log(text);
+                    modal_body.innerHTML = text;
 
                 });
 
