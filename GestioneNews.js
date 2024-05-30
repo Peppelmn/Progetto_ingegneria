@@ -4,12 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch(url).then(response => response.json()).then(json => {
         let body = document.getElementById("news-body")
-        let testo = "";
+        let testo = ""
         for (let datas of json.data) {
             let dataN = datas.attributes.createdAt
             let arrayTempo = dataN.split("T")
             dataN = arrayTempo[0]
             let oraN = arrayTempo[1].split(".")[0]
+            let fuso = parseInt(oraN.split(":")[0])
+            fuso += 2
+            oraN = `${fuso}:${oraN.split(":")[1]}:${oraN.split(":")[2]}`
             testo += `<div class="card">
                 <div class="card-header">${dataN} ${oraN}</div>
                 <div class="card-body">
@@ -17,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${datas.attributes.Testo}
                     </div>
                 </div>
-            </div><br>`;
+            </div><br>`
         }
         body.innerHTML = testo;
     })
